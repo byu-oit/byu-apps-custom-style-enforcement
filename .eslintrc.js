@@ -4,19 +4,27 @@ module.exports = {
     node: true
   },
   'extends': [
-    'plugin:vue/essential',
+    'eslint:recommended',
+    'plugin:vue/recommended',
+    '@nuxtjs',
     '@vue/standard',
     '@vue/typescript',
-    '@nuxtjs'
+    'plugin:prettier/recommended',
+    'prettier/@typescript-eslint',
+    'prettier/vue',
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
-    "space-before-function-paren": ["error", "always"]
+    'no-useless-constructor': 'off',
+    '@typescript-eslint/no-useless-constructor': 'warn',
+    '@typescript-eslint/no-unused-vars': 'warn',
+    'no-trailing-spaces': 'warn',
+    'prettier/prettier': ['warn', { 'semi': false, 'singleQuote': true }],
+    'vuetify/no-deprecated-classes': 'warn',
   },
   parserOptions: {
     parser: '@typescript-eslint/parser'
   },
-  plugins: ['@typescript-eslint']
+  plugins: ['vuetify', '@typescript-eslint']
 }
